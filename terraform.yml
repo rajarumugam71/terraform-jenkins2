@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  vars:
+    state: present
+    s3_bucket: awsraj-tf-1212
+    key: awsraj-tf-1212
+    region: us-east-2
+    app_env: dev
+  tasks:
+    - name: Run Terraform Scripts
+      terraform:
+        project_path: "./"
+        state: "{{ state }}"
+        backend_config:
+          bucket: "{{ s3_bucket }}"
+          key: "{{ s3_bucket }}"
+          region: "{{ region }}"
+        variables_file: "{{ app_env }}.tfvars"
+        workspace: "{{app_env}}"

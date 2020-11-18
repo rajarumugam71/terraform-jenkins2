@@ -1,0 +1,54 @@
+
+pipeline{
+  agent any
+  environment {
+  PATH = "${PATH}/terraform"
+
+}
+  stages{
+
+    stage("terraform create my s3 bucket")   {
+
+      steps{
+          script{
+                  createMyS3Bucket("awsraj-tf-1212")
+          }
+      }
+    }
+
+    stage('terraform init and apply - dev environment'){
+
+      steps{
+           sh 'pwd'
+           sh returnStatus: true, script: 'terraform workspace new dev'
+           sh "terraform init"
+           sh "terraform apply -var-file=dev.tfvars -auto-approve"
+
+      }
+    }
+
+
+    stage('terraform init and apply - prod environment'){
+
+      steps{
+           sh 'pwd'
+           sh returnStatus: true, script: 'terraform workspace new prod'
+           sh "terraform init"
+           sh "terraform apply -var-file=prod.tfvars -auto-approve"
+
+      }
+    }
+
+  }
+
+}
+
+def getTerraformPath(){
+   def   tfHome =  tool name: 'terraform-12', type: 'terraform'
+   echo tfHome
+   return tfHome
+}
+
+def createMyS3Bucket(bucketName){
+    sh returnStatus: true, script: "aws s3 mb ${bucketName} -region-us-east-2"
+}

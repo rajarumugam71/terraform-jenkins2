@@ -1,0 +1,8 @@
+---
+
+- hosts: localhost
+  tasks:
+    - name: Create s3 bucketName
+      s3_bucket:
+        name: wsraj-tf-1212
+        state: present
