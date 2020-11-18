@@ -2,8 +2,8 @@
 - hosts: localhost
   vars:
     state: present
-    s3_bucket: awsraj-tf-1212
-    key: awsraj-tf-1212
+    s3_bucket: awsraj-tf-12122
+    key: awsraj-tf-12122
     region: us-east-2
     app_env: dev
   tasks:
