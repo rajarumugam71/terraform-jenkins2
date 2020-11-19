@@ -11,6 +11,8 @@
     - name: Run Terraform Scripts
       terraform:
         project_path: "./"
+        debug:
+          msg:
         state: "{state}"
         backend_config:
           bucket: wsraj-tf-12121118

@@ -20,8 +20,8 @@ pipeline{
       steps{
            sh 'pwd'
 
-           sh "terraform plan"
-           sh returnStatus: true, script: 'terraform workspace new dev'
+      
+           sh  -Debug  returnStatus: true, script: 'terraform workspace new dev'
            sh "terraform init"
            sh "ansible-playbook  terraform.yml"
 
