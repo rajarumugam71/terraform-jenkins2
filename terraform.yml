@@ -3,7 +3,7 @@
   vars:
     state: present
     s3_bucket: wsraj-tf-12121118
-    key: terraformJenkins.tfstate
+    key: terraform.tfstate
     region: us-east-2
     app_env: dev
   tasks:
