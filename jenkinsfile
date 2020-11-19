@@ -10,8 +10,7 @@ pipeline{
     stage("terraform create my s3 bucket")   {
 
       steps{
-          sh "terraform init"
-          sh "ansible-playbook  s3-bucket.yml"
+              sh "ansible-playbook  s3-bucket.yml"
           }
 
     }
@@ -20,8 +19,9 @@ pipeline{
 
       steps{
            sh 'pwd'
-           sh returnStatus: true, script: 'terraform workspace new dev'
            sh "terraform init"
+           sh returnStatus: true, script: 'terraform workspace new dev'
+
            sh "ansible-playbook  terraform.yml"
 
       }
@@ -32,8 +32,9 @@ pipeline{
 
       steps{
            sh 'pwd'
-           sh returnStatus: true, script: 'terraform workspace new prod'
            sh "terraform init"
+           sh returnStatus: true, script: 'terraform workspace new prod'
+           
            sh "ansible-playbook  terraform.yml  -e app_env=prod"
 
       }
