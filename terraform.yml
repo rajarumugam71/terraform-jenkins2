@@ -2,7 +2,7 @@
 - hosts: localhost
   vars:
     state: present
-    s3_bucket: wsraj-tf-12121119
+    s3_bucket: wsraj-tf-121211191
     key: terraform.tfstate
     region: us-east-2
     app_env: dev
