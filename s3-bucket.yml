@@ -5,5 +5,4 @@
     - name: Create s3 bucketName
       s3_bucket:
         name: wsraj-tf-12121118
-        region: us-east-2
-        state: present
+        state: absent
