@@ -5,6 +5,7 @@
     s3_bucket: wsraj-tf-12121118
     key: terraform.tfstate
     region: us-east-2
+    profile: awsraj
     app_env: dev
   tasks:
     - name: Run Terraform Scripts
