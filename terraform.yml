@@ -5,7 +5,6 @@
     s3_bucket: wsraj-tf-12121118
     key: terraform.tfstate
     region: us-east-2
-    profile: awsraj
     app_env: dev
   tasks:
     - name: Run Terraform Scripts
@@ -13,10 +12,10 @@
         project_path: "./"
         debug:
           msg:
-        state: "{state}"
+        state: "{{state}}"
         backend_config:
-          bucket: wsraj-tf-12121118
-          key: "{key}"
-          region: "{region}"
-        variables_file: "{app_env}.tfvars"
-        workspace: "{app_env}"
+          bucket: {{s3_bucket}}
+          key: "{{key}}"
+          region: "{{region}}"
+        variables_file: "{{app_env}}.tfvars"
+        workspace: "{{app_env}}"
