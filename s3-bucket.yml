@@ -6,5 +6,4 @@
       s3_bucket:
         name: wsraj-tf-12121118
         region: us-east-2
-        profile: awsraj
         state: present
