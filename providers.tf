@@ -6,8 +6,8 @@ terraform {
 
   backend "s3" {
 
-    bucket = "awsraj-tf-12122"
-    key    = "awsraj-tf-12122"
+    bucket = "wsraj-tf-12121118"
+    key    = "terraformJenkins.tfstate"
     region = "us-east-2"
   }
 }
