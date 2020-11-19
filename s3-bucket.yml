@@ -5,6 +5,5 @@
     - name: Create s3 bucketName
       s3_bucket:
         name: wsraj-tf-121211191
-        key: terraform.tfstate
         region: us-east-2
         state: present
