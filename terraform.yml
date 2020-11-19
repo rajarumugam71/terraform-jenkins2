@@ -13,7 +13,7 @@
         project_path: "./"
         state: "{state}"
         backend_config:
-          bucket: "{s3_bucket}"
+          bucket: wsraj-tf-12121118
           key: "{key}"
           region: "{region}"
         variables_file: "{app_env}.tfvars"
