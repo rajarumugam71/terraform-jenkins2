@@ -10,6 +10,7 @@ pipeline{
     stage("terraform create my s3 bucket")   {
 
       steps{
+          sh "terraform init"
           sh "ansible-playbook  s3-bucket.yml"
           }
 
@@ -46,7 +47,7 @@ def getTerraformPath(){
    def   tfHome =  tool name: 'terraform-12', type: 'terraform'
    echo tfHome
    return tfHome
-   
+
 }
 
 def createMyS3Bucket(bucketName){
